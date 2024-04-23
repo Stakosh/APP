@@ -12,7 +12,6 @@ import noticia1 from '../img/noticia1.jpg';
 import noticia2 from '../img/noticia2.jpg';
 import { Image, Container, Button, Card, Row, Col, Carousel } from 'react-bootstrap';
 import team from '../img/team.jpeg';
-import { galeriaImages } from './Galeria';
 
 
 
@@ -72,7 +71,6 @@ function Inicio() {
  };
 
 
- const selectedImages = galeriaImages.slice(0, 5);
 
 
  return (
@@ -141,29 +139,6 @@ function Inicio() {
          </Button>
        </a>
        </Container>
-
-
-       <Container className="gallery-container">
-       <h2>FOTOS DESTACADAS</h2>
-       <Carousel>
-         {selectedImages.map((image, index) => (
-           <Carousel.Item key={index}>
-             <Image
-               src={image.src}
-               alt={`Slide ${index + 1}`}
-               fluid
-               style={{ width: '60vw', height: '60vw', objectFit: 'cover' }}
-             />
-           </Carousel.Item>
-         ))}
-       </Carousel>
-       <Button Button variant="primary" className="mt-3">
-         <Link to="/noticias" className='news_link'>
-           Ver Galería
-         </Link>
-       </Button>
-     </Container>
-
 
        <Container className="sponsor-container">
            <h2>PATROCINADORES</h2>

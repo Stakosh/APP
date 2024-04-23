@@ -1,7 +1,6 @@
 // Layout.js
 import React from 'react';
 import logo from '../img/logo.jpg';
-import team from '../img/team.jpeg';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container, Image } from 'react-bootstrap';
 import { FaInstagram, FaFacebook, FaYoutube, FaTiktok, FaTwitter } from 'react-icons/fa';
