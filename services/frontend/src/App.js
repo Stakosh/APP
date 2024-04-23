@@ -5,57 +5,12 @@ import { useEffect, useState } from "react";
 import { io } from "socket.io-client";
 
 function App() {
-  const [messages, setMessages] = useState([]);
-  const [socketInstance, setSocketInstance] = useState("");
-
-  useEffect(() => {
-    fetch(`${process.env.REACT_APP_BACKEND_SERVICE_URL}/messages`)
-      .then((response) => response.json())
-      .then((responseData) => {
-        setMessages(responseData);
-      });
-  }, []);
-  useEffect(() => {
-    const socket = io(`${process.env.REACT_APP_WEBSOCKET_SERVICE_URL}`, {
-      transports: ["websocket"],
-      cors: {
-        origin: "http://localhost:3000/",
-        withCredentials: true,
-      },
-    });
-    setSocketInstance(socket);
-
-    socket.on("connect", (data) => {
-      console.log("socket - connected users:", data);
-    });
-
-    socket.on("disconnect", (data) => {
-      console.log("socket - disconnect users:", data);
-    });
-
-    socket.on("new_message", (data) => {
-      const updatedMessages = [...messages, data];
-      setMessages(updatedMessages);
-      console.log(data);
-    });
-
-    return function cleanup() {
-      console.log("clean up");
-      socket.disconnect();
-    };
-  }, [messages]);
+  // Puedes agregar aquí la URL de la imagen que quieres mostrar
+  const imageUrl = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.abc.es%2Fsociedad%2Fmascotas%2Fabci-mas-barato-mantener-perro-o-gato-201910100240_noticia.html&psig=AOvVaw21VeBJ_aPTlLG0ycKvK1dX&ust=1713925610123000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNDE3dOk14UDFQAAAAAdAAAAABAE"; // Reemplaza con la URL de tu imagen
   return (
     <div className="App">
-      {messages.length !== 0 ? (
-        <Messages messages={messages} />
-      ) : (
-        <p>No Messages</p>
-      )}
-      <TextField
-        socket={socketInstance}
-        messages={messages}
-        setMessages={setMessages}
-      />
+      <h1>Funcionando</h1>
+      <img src={imageUrl} alt="Imagen descriptiva" style={{ width: "100%", height: "auto" }} />
     </div>
   );
 }
