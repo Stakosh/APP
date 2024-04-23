@@ -100,14 +100,14 @@ p {
    margin-top: 25vw; /* Puedes ajustar el valor según sea necesario */
 }
 
-
+/*
 #somos {
    font-size: 10vw;
    font-weight: bold;
    color: white;
-   margin-right: 10px; /* Espacio entre #Somos y FEVOCHI */
+   margin-right: 10px;  Espacio entre #Somos y FEVOCHI 
 }
-
+*/
 
 .fevochi {
    font-size: 12vw;
